@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+class Stack {
+    private static final int MAX_SIZE = 10;
+    private int top;
+    private int[] array;
+
+    public Stack() {
+        top = -1;
+        array = new int[MAX_SIZE];
+    }
+
+    public void push(int value) {
+        if (top == MAX_SIZE - 1) {
+            System.out.println("Stack Overflow! Cannot push " + value);
+        } else {
+            array[++top] = value;
+            System.out.println(value + " pushed to the stack.");
+        }
+    }
+
+    public void pop() {
+        if (top == -1) {
+            System.out.println("Stack Underflow! Cannot pop from an empty stack.");
+        } else {
+            System.out.println(array[top--] + " popped from the stack.");
+        }
+    }
+
+    public void display() {
+        if (top == -1) {
+            System.out.println("Stack is empty.");
+        } else {
+            System.out.print("Stack elements: ");
+            for (int i = 0; i <= top; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+        Scanner scanner = new Scanner(System.in);
+        int choice, value;
+
+        do {
+            System.out.println("\nStack Operations:");
+            System.out.println("1. Push");
+            System.out.println("2. Pop");
+            System.out.println("3. Display");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the value to push: ");
+                    value = scanner.nextInt();
+                    stack.push(value);
+                    break;
+                case 2:
+                    stack.pop();
+                    break;
+                case 3:
+                    stack.display();
+                    break;
+                case 4:
+                    System.out.println("Exiting program.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        } while (choice != 4);
+
+        scanner.close();
+    }
+}

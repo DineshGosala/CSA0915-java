@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {g
+    public static void main(String[] args) {
+        ArrayList<Integer> numbersList = new ArrayList<>();
+        numbersList.add(10);
+        numbersList.add(20);
+        numbersList.add(30);
+        numbersList.add(40);
+        System.out.println("Initial ArrayList: " + numbersList);
+        addElements(numbersList);
+        System.out.println("ArrayList after adding elements: " + numbersList);
+        removeElements(numbersList);
+        System.out.println("ArrayList after removing elements: " + numbersList);
+    }
+    private static void addElements(ArrayList<Integer> list) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements to add: ");
+        int numElements = scanner.nextInt();
+
+        for (int i = 0; i < numElements; i++) {
+            System.out.print("Enter element " + (i + 1) + ": ");
+            int element = scanner.nextInt();
+            list.add(element);
+            System.out.println("Element " + element + " added to the ArrayList.");
+        }
+    }
+    private static void removeElements(ArrayList<Integer> list) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements to remove: ");
+        int numElements = scanner.nextInt();
+
+        for (int i = 0; i < numElements; i++) {
+            System.out.print("Enter element " + (i + 1) + " to remove: ");
+            int element = scanner.nextInt();
+
+            if (list.contains(element)) {
+                list.remove(Integer.valueOf(element));
+                System.out.println("Element " + element + " removed from the ArrayList.");
+            } else {
+                System.out.println("Element " + element + " not found in the ArrayList.");
+            }
+        }
+    }
+}

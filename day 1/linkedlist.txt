@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        LinkedList<String> ll = new LinkedList<String>();
+        ll.add("Seeta");
+        ll.add("Babita");
+        ll.add("Deepak");
+        ll.add("Keshav");
+        ll.addLast("Zareena");
+        ll.addFirst("Amita");
+        ll.add(1, "Aarti");
+        System.out.println("Original elements of list: " + ll);
+        ll.remove("Deepak");
+        ll.remove(1);
+        System.out.println("list elements after deletion: " + ll);
+        ll.removeFirst();
+        ll.removeLast();
+        System.out.println("List elements after deleting first and last: " + ll);
+        String val = ll.get(1);
+        ll.set(1, val + "_FY");
+        System.out.println("List after modification: " + ll);
+    }
+}
