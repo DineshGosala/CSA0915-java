@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the current year: ");
+        int currentYear = scanner.nextInt();
+        System.out.print("Enter the eligibility age: ");
+        int eligibilityAge = scanner.nextInt();
+        System.out.print("Enter the year the person is eligible to vote: ");
+        int voteEligibleYear = scanner.nextInt();
+        int birthYear;
+        if (voteEligibleYear > currentYear) {
+            System.out.println("Invalid input: Eligibility year cannot be in the future.");
+            return;
+        } else {
+            birthYear = voteEligibleYear - eligibilityAge;
+        }
+
+        System.out.println("The person's birth year is: " + birthYear);
+
+        scanner.close();
+    }
+}

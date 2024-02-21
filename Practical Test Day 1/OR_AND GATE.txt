@@ -1,0 +1,27 @@
+public class Main {
+    // OR gate implementation
+    public static boolean OR(boolean input1, boolean input2) {
+        return input1 || input2;
+    }
+
+    // AND gate implementation
+    public static boolean AND(boolean input1, boolean input2) {
+        return input1 && input2;
+    }
+
+    public static void main(String[] args) {
+        // Testing OR gate
+        System.out.println("OR Gate:");
+        System.out.println("True OR True: " + OR(true, true));
+        System.out.println("True OR False: " + OR(true, false));
+        System.out.println("False OR True: " + OR(false, true));
+        System.out.println("False OR False: " + OR(false, false));
+
+        // Testing AND gate
+        System.out.println("\nAND Gate:");
+        System.out.println("True AND True: " + AND(true, true));
+        System.out.println("True AND False: " + AND(true, false));
+        System.out.println("False AND True: " + AND(false, true));
+        System.out.println("False AND False: " + AND(false, false));
+    }
+}
