@@ -1,0 +1,36 @@
+public class Main {
+
+    public static void main(String[] args) {
+        try {
+            int[] array = new int[5];
+            int element = array[10];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception occurred: " + e);
+        }
+        try {
+            int[] array = {1, 2, 3};
+            for (int i = 0; i <= array.length; i++)
+            {
+                System.out.println(array[i]);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception occurred: " + e);
+        }
+        try {
+            int[][] nestedArray = {{1, 2}, {3, 4}};
+            System.out.println(nestedArray[1][2]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception occurred: " + e);
+        }
+        try {
+            int[] array = new int[5];
+            method(array);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception occurred: " + e);
+        }
+    }
+
+    public static void method(int[] array) {
+        int element = array[10];
+    }
+}

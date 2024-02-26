@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter an integer: ");
+
+        try {
+            int userInput = readInteger(scanner);
+            System.out.println("You entered: " + userInput);
+        } catch (NonIntegerInputException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static int readInteger(Scanner scanner) throws NonIntegerInputException {
+        if (!scanner.hasNextInt()) {
+            throw new NonIntegerInputException("Non-integer value entered!");
+        }
+        return scanner.nextInt();
+    }
+
+    static class NonIntegerInputException extends Exception {
+        public NonIntegerInputException(String message) {
+            super(message);
+        }
+    }
+}

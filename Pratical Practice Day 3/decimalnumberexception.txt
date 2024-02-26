@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+// Custom Exception class for InvalidDecimalNumber
+class InvalidDecimalNumberException extends Exception {
+    public InvalidDecimalNumberException(String message) {
+        super(message);
+    }
+}
+
+// Class to handle user input and validate decimal number
+class DecimalNumberValidator {
+    // Method to check if the entered string represents a valid decimal number
+    public static boolean isValidDecimalNumber(String input) {
+        try {
+            // Attempt to parse the input string as a decimal number
+            Double.parseDouble(input);
+            return true; // If parsing succeeds, return true
+        } catch (NumberFormatException e) {
+            return false; // If parsing fails, return false
+        }
+    }
+
+    // Method to validate the input and throw custom exception if invalid
+    public static void validateDecimalNumber(String input) throws InvalidDecimalNumberException {
+        if (!isValidDecimalNumber(input)) {
+            throw new InvalidDecimalNumberException("Invalid decimal number entered: " + input);
+        }
+    }
+}
+
+// Main class to demonstrate the usage of DecimalNumberValidator
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a decimal number: ");
+        String userInput = scanner.nextLine(); // Get input from the user
+
+        try {
+            // Validate the user input
+            DecimalNumberValidator.validateDecimalNumber(userInput);
+            System.out.println("Input is a valid decimal number.");
+        } catch (InvalidDecimalNumberException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            scanner.close(); // Close the scanner
+        }
+    }
+}

@@ -1,0 +1,28 @@
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero");
+        }
+        try {
+            double logResult = Math.log(0);
+            System.out.println("Logarithm Result: " + logResult);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Logarithm of negative or zero");
+        }
+        try {
+            double tanResult = Math.tan(Math.toRadians(90));
+            System.out.println("Tan Result: " + tanResult);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Tan 90 degree");
+        }
+        try {
+            double zeroPowerZero = Math.pow(0, 0);
+            System.out.println("Zero Power Zero: " + zeroPowerZero);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Zero power zero");
+        }
+    }
+}

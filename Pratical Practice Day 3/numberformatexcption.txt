@@ -1,0 +1,42 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String nonNumericString = "Hello";
+            int parsedValue = Integer.parseInt(nonNumericString);
+            System.out.println(parsedValue);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Cannot parse a non-numeric string.");
+        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        try {
+            int userInput = Integer.parseInt(scanner.nextLine());
+            System.out.println("User input: " + userInput);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Invalid input. Please enter a valid number.");
+        }
+        try {
+            double number = 123456.789;
+            DecimalFormat df = new DecimalFormat("#,##0.00");
+            String formattedNumber = df.format(number);
+            System.out.println("Formatted number: " + formattedNumber);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Formatting issue in decimal format.");
+        }
+        try {
+            String localizedNumberString = "1.234.567,89";
+            NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
+            double parsedNumber = nf.parse(localizedNumberString).doubleValue();
+            System.out.println("Parsed number: " + parsedNumber);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Incorrect usage of localized decimal separators.");
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

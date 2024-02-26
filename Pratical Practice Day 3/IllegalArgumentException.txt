@@ -1,0 +1,71 @@
+public class IllegalArgumentExceptionDemo {
+
+    // Method requiring nonnegative values
+    public void methodRequiringNonnegativeValue(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Negative value not allowed");
+        }
+        // Method implementation here
+    }
+
+    // Method with Enum parameter
+    public enum MyEnum {
+        VALUE1, VALUE2
+    }
+
+    public void methodWithEnumParameter(MyEnum enumValue) {
+        if (enumValue == null) {
+            throw new IllegalArgumentException("Enum value cannot be null");
+        }
+        // Method implementation here
+    }
+
+    // Method with range parameter
+    public void methodWithRangeParameter(int value) {
+        if (value < 1 || value > 10) {
+            throw new IllegalArgumentException("Value must be between 1 and 10 (inclusive)");
+        }
+        // Method implementation here
+    }
+
+    // Method requiring non-null and non-empty string
+    public void methodRequiringNonNullAndNonEmptyString(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException("String argument cannot be null or empty");
+        }
+        // Method implementation here
+    }
+
+    public static void main(String[] args) {
+        IllegalArgumentExceptionDemo demo = new IllegalArgumentExceptionDemo();
+
+        // Testing each scenario
+        try {
+            // a) Negative Argument in the method requiring nonnegative values
+            demo.methodRequiringNonnegativeValue(-5);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught IllegalArgumentException: " + e.getMessage());
+        }
+
+        try {
+            // b) Invalid Enum Constant Passed to a Method
+            demo.methodWithEnumParameter(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught IllegalArgumentException: " + e.getMessage());
+        }
+
+        try {
+            // c) Setting an Invalid Range for a Method Parameter
+            demo.methodWithRangeParameter(20);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught IllegalArgumentException: " + e.getMessage());
+        }
+
+        try {
+            // d) Empty or Null String Argument in a Method Requiring
+            demo.methodRequiringNonNullAndNonEmptyString("");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught IllegalArgumentException: " + e.getMessage());
+        }
+    }
+}
