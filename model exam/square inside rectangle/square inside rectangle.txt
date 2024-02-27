@@ -1,0 +1,7 @@
+public class Main {
+    public static void main(String[] args) {
+        double sideLengthSquare = Math.min(12, 6);
+        double areaSquare = sideLengthSquare * sideLengthSquare;
+        System.out.println("Area of the square inside the rectangle: " + areaSquare + " square cm");
+    }
+}

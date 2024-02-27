@@ -1,0 +1,39 @@
+class Parent {
+    void student_details(int regNo, String studentName) {
+        System.out.println("Student Details:");
+        System.out.println("Registration No: " + regNo);
+        System.out.println("Student Name: " + studentName);
+    }
+}
+
+class Child extends Parent {
+    void student_details(int regNo, String studentName, double percentage) {
+        System.out.println("Student Details:");
+        System.out.println("Registration No: " + regNo);
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Percentage: " + percentage);
+    }
+
+    void student_details(double regNo, String studentName) {
+        System.out.println("Student Details:");
+        System.out.println("Registration No: " + regNo);
+        System.out.println("Student Name: " + studentName);
+    }
+
+    void student_details(String studentName, double regNo) {
+        System.out.println("Student Details:");
+        System.out.println("Registration No: " + regNo);
+        System.out.println("Student Name: " + studentName);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child child = new Child();
+
+        child.student_details(1234, "John Doe");
+        child.student_details(5678, "Jane Doe", 85.5);
+        child.student_details(9876.0, "Alice Smith");
+        child.student_details("Bob Johnson", 5432.0);
+    }
+}

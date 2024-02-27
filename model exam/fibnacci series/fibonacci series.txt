@@ -1,0 +1,16 @@
+public class Main {
+    public static void main(String[] args) {
+        // Given series
+        int[] series = {0, 1, 1, 2, 3, 5, 8, 13, 0, 34, 55};
+        int missingNumber = findMissingNumber(series);
+        System.out.println("The missing number in the series is: " + missingNumber);
+    }
+    public static int findMissingNumber(int[] series) {
+        for (int i = 3; i < series.length; i++) {
+            if (series[i - 2] + series[i - 1] != series[i]) {
+                return series[i - 2] + series[i - 1];
+            }
+        }
+        return -1; 
+    }
+}
